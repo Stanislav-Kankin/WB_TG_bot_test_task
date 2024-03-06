@@ -1,8 +1,8 @@
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
+from bot_utils.handlers import router
+
 
 from config import TOKEN
 
@@ -10,17 +10,8 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 
-@dp.message(CommandStart())
-async def cmd_start(message: Message):
-    await message.answer('Здарова! Хочешь узнать обо мне? жми /help')
-
-
-@dp.message(Command('help'))
-async def cms_help(message: Message):
-    await message.answer('Тут текст')
-
-
 async def main():
+    dp.include_router(router)
     await dp.start_polling(bot)
 
 
