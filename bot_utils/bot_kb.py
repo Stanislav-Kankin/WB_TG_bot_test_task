@@ -11,3 +11,9 @@ main_kb = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
+inline = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Перейти на товар.", url='https://www.wildberries.ru/catalog/54997699/detail.aspx')]
+        ]
+)
