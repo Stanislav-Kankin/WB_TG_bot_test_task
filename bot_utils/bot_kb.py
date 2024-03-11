@@ -2,7 +2,7 @@ from aiogram.types import (
     ReplyKeyboardMarkup, KeyboardButton,
     InlineKeyboardMarkup, InlineKeyboardButton
     )
-
+user_article = ''
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text='Получить информацию по товару')],
@@ -14,6 +14,9 @@ main_kb = ReplyKeyboardMarkup(
 
 inline = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Перейти на товар.", url='https://www.wildberries.ru/catalog/54997699/detail.aspx')]
+        [InlineKeyboardButton(
+            text="Перейти на товар.",
+            url=f'https://www.wildberries.ru/catalog/{user_article}/detail.aspx'
+            )]
         ]
 )

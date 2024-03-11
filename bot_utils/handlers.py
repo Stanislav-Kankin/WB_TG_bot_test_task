@@ -19,7 +19,7 @@ async def cmd_start(message: Message):
 @router.message(Command('help'))
 async def cmd_help(message: Message):
     await message.answer(
-        'ПАМАГИТИ!!!'
+        'Тут текст по основным командам бота'
     )
 
 
@@ -42,7 +42,7 @@ async def handle_article(message: Message):
         products = result['data']['products']
         if products:
             product = products[0]
-            product_info = f"Название: {product['name']}\nБренд: {product['brand']}\nЦена: {product['salePriceU']}\nРейтинг: {product['rating']}"
+            product_info = f"Название: {product['name']}\nБренд: {product['brand']}\nЦена: {product['salePriceU']}\nРейтинг: {float(product['supplierRating'])}"
             await message.reply(product_info, reply_markup=kb.inline)
         else:
             await message.reply('Товар не найден.')
