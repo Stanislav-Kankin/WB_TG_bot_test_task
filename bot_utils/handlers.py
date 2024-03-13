@@ -36,7 +36,9 @@ async def handle_article(message: Message):
                 result = await response.json()
 
         if 'error' in result:
-            await message.reply('Произошла ошибка при получении информации о товаре.')
+            await message.reply(
+                'Произошла ошибка при получении информации о товаре.'
+                )
             return
 
         products = result['data']['products']
